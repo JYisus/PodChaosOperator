@@ -1,0 +1,23 @@
+# permissions for end users to view podchaosmonkeys.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: podchaosoperator
+    app.kubernetes.io/managed-by: kustomize
+  name: podchaosmonkey-viewer-role
+rules:
+- apiGroups:
+  - chaos.jyisus.com
+  resources:
+  - podchaosmonkeys
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - chaos.jyisus.com
+  resources:
+  - podchaosmonkeys/status
+  verbs:
+  - get

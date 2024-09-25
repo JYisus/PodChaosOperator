@@ -1,0 +1,11 @@
+apiVersion: chaos.jyisus.com/v1
+kind: PodChaosMonkey
+metadata:
+  name: chaos-monkey-1
+  namespace: chaos
+spec:
+    targetNamespace: workloads
+    scheduleFormat: cron-seconds
+    schedule: "*/2 * * * * *"
+    image: yisusisback/pod-chaos-monkey:latest
+    replicas: 2
